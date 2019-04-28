@@ -39,8 +39,8 @@ public class SolutionV2 {
 		// Return false if match not found
 		// Return true when iteration ends
 
-		// T.C: O(N)
-		// S.C: O(C) or O(1)
+		// T.C: O(min(N,C)) or O(C)
+		// S.C: O(1) or O(C) if charset size is not fixed
 		// N is the length of the string, C is the size of charset
 		
 		if(string1 == null || string2 == null || string1.length() != string2.length())
