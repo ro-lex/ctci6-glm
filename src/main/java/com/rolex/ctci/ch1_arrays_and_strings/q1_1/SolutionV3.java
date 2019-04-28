@@ -1,15 +1,12 @@
 package com.rolex.ctci.ch1_arrays_and_strings.q1_1;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import junit.framework.Assert;
 
 /*
  * Is Unique: Implement an algorithm to determine if a string has all unique characters. 
  * What if you cannot use an additional data structure?
  */
-public class SolutionV1 {
+public class SolutionV3 {
 
 	public static void main(String[] args) {
 		Assert.assertEquals(true, hasUniqueCharacters("asdfgh"));
@@ -31,29 +28,28 @@ public class SolutionV1 {
 		// Question: Is the String ASCII String or Unicode string?
 		// Question/Assumption: Case sensitive?
 		
-		// Use a HashSet to store each character that was encountered before.
+		// Use a boolean array to store each character that was encountered before.
 		// Iterate over String
-		// Check whether hash set contains the character. If yes, return false
- 		// Add character to hash set. Continue iteration.
+		// Check whether array element for the character is 'true'. If yes, return false
+ 		// Update array element to true. Continue iteration.
 		// When iteration is over, return true
 		
-		// TC: O(N)
-		// SC: O(N)
-		// N = length of string
+		// TC: O(min(N,C)) or O(C)
+		// SC: O(1) or O(C), if charset size is not fixed
+		// N = length of string, C size of charset
 		
-		if(input == null || input == "")
+		if(input == null || input == "" || input.length() > 128)
 			return false;
 		
-		Set<Character> characters = new HashSet<>();
+		//Assume ASCII
+		boolean[] wasFound = new boolean[128];
 		
-		char[] chars = input.toCharArray();
-		
-		for(char character : chars){
-			if(characters.contains(character))
+		for(char c : input.toCharArray()) {
+			
+			if(wasFound[c])
 				return false;
 			else
-				characters.add(character);
-
+				wasFound[c] = true;
 		}
 
 		return true;

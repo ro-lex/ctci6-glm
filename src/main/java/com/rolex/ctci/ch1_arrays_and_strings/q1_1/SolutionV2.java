@@ -14,6 +14,11 @@ public class SolutionV2 {
 		Assert.assertEquals(false, hasUniqueCharacters("aaa"));
 		Assert.assertEquals(true, hasUniqueCharacters("sd23"));
 		Assert.assertEquals(false, hasUniqueCharacters("fgf"));
+		Assert.assertEquals(false, hasUniqueCharacters("dfs  "));
+		Assert.assertEquals(true, hasUniqueCharacters("Gdfg"));
+		Assert.assertEquals(false, hasUniqueCharacters(null));
+		
+		System.out.println("Success");
 	}
 
 	// Note: this is not the proper solution without additional D.S. Bit Vector?? Sorting ??
@@ -31,6 +36,9 @@ public class SolutionV2 {
 		// TC: O(N)
 		// SC: O(N)
 		// N is length of the string
+		
+		if(input == null || input == "")
+			return false;
 
 		StringBuilder strBuilder = new StringBuilder(input);
 
