@@ -60,7 +60,7 @@ public class SolutionV1 {
 		// Each occurrence of space, a character has to be replaced by %20, i.e. three characters
 		// All characters after the last space will be displaced by 2 characters
 		// All characters after the penultimate space  from the end will be displaced by 4 characters
-		// All characters after the nth space from the end will be dispaced by 2n characters.
+		// All characters after the nth space from the end will be displaced by 2n characters.
 
 		// Iterate over input and determine position of spaces. These are stored into spaceIndex ArrayList.
 		// Initialize currentSpaceIndex = spaceIndex.size()
